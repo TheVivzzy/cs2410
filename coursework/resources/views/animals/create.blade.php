@@ -35,7 +35,7 @@
           </div>
           <div class="col-md-8">
             <label >Description</label>
-            <textarea rows="1" cols="50" name="description"> Animal description </textarea>
+            <textarea rows="2" cols="50" name="description"> Animal description </textarea>
             </div>
             <div class="col-md-8">
               <label>Picture</label>

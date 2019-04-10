@@ -60,7 +60,57 @@ class AnimalController extends Controller
   public function index()
   {
     $animal = Animal::all()->toArray();
-    return view('animals.index', compact('animals'));
+    return view('animals.index', compact('animal'));
   }
 
+  public function show($id)
+  {
+    $animal = Animal::find($id);
+    return view('animals.show',compact('animal'));
+  }
+
+  public function destroy($id)
+  {
+    $animal = Animal::find($id);
+    $animal->delete();
+    return redirect('animals')->with('success','Animal has been deleted');
+  }
+
+  public function update(Request $request, $id)
+  {
+    $anial = Animal::find($id);
+    $this->validate(request(), [
+      'name' => 'required',
+      'dob' => 'required',
+      'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
+    ]);
+    $animal->name = $request->input('name');
+    $animal->dob = $request->input('dob');
+    $animal->description = $request->input('description');
+    $vehicle->updated_at = now();
+    //Handles the uploading of the image
+    if ($request->hasFile('picture')){
+      //Gets the filename with the extension
+      $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+      //just gets the filename
+      $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+      //Just gets the extension
+      $extension = $request->file('picture')->getClientOriginalExtension();
+      //Gets the filename to store
+      $fileNameToStore = $filename.'_'.time().'.'.$extension;
+      //Uploads the image
+      $path = $request->file('Picture')->storeAs('public/img', $fileNameToStore);
+    } else {
+      $fileNameToStore = 'noimage.jpg';
+    }
+    $vehicle->image = $fileNameToStore;
+    $vehicle->save();
+    return redirect('animals')->with('success','Animal has been updated');
+  }
+
+  public function edit($id)
+  {
+    $animal = Animal::find($id);
+    return view('animals.edit',compact('animal'));
+  }
 }
