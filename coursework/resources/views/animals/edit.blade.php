@@ -21,7 +21,7 @@
         @endif
         <div class="card-body">
           <form class="form-horizontal" method="POST" action="{{ action('AnimalController@update',
-          $vehicle['id']) }} " enctype="multipart/form-data" >
+          $animal['id']) }} " enctype="multipart/form-data" >
           @method('PATCH')
           @csrf
           <div class="col-md-8">
@@ -42,6 +42,12 @@
               <label>Picture</label>
               <input type="file" name="picture"
               placeholder="Image file" />
+            </div>
+            <div class="col-md-8">
+              <label>Availability</label>
+              <input type="hidden" name="availability"
+              value="0" />
+              <input type="checkbox" name="availability"/>
             </div>
           <div class="col-md-6 col-md-offset-4">
             <input type="submit" class="btn btn-primary" />

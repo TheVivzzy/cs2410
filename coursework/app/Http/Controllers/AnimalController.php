@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Animal;
+use Validator;
 
 class AnimalController extends Controller
 {
@@ -78,16 +79,15 @@ class AnimalController extends Controller
 
   public function update(Request $request, $id)
   {
-    $anial = Animal::find($id);
+    $animal = Animal::find($id);
     $this->validate(request(), [
       'name' => 'required',
       'dob' => 'required',
-      'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
     ]);
     $animal->name = $request->input('name');
     $animal->dob = $request->input('dob');
     $animal->description = $request->input('description');
-    $vehicle->updated_at = now();
+    // $animal->updated_at = now();
     //Handles the uploading of the image
     if ($request->hasFile('picture')){
       //Gets the filename with the extension
@@ -99,12 +99,12 @@ class AnimalController extends Controller
       //Gets the filename to store
       $fileNameToStore = $filename.'_'.time().'.'.$extension;
       //Uploads the image
-      $path = $request->file('Picture')->storeAs('public/img', $fileNameToStore);
+      $path = $request->file('picture')->storeAs('public/img', $fileNameToStore);
     } else {
       $fileNameToStore = 'noimage.jpg';
     }
-    $vehicle->image = $fileNameToStore;
-    $vehicle->save();
+    $animal->picture = $fileNameToStore;
+    $animal->save();
     return redirect('animals')->with('success','Animal has been updated');
   }
 
