@@ -17,3 +17,5 @@ Route::get('/', 'PageController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('display','AnimalController@display')->name('display_animals');
