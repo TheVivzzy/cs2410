@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Animal;
+use App\Adoption;
 use Validator;
 
 class AnimalController extends Controller
 {
   public function display()
   {
-    $animalQuery = Animal::all();
-    return view('/display', array('animals'=>$animalQuery));
+    $requested = false;
+    $animalsQuery = Animal::all();
+    $userId = \Auth::user()->id;
+    $adoptionsQuery = Adoption::all();
+    return view ('/display', array('animals'=>$animalsQuery, 'userId'=>$userId,
+    'adoptions'=>$adoptionsQuery, 'requested'=>$requested));
   }
 
   public function create()

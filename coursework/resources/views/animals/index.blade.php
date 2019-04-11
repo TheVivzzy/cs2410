@@ -39,8 +39,8 @@
                 @endforeach
               </tbody>
             </table>
-            <td><a href="{{action('AnimalController@create', $temp['id'])}}" class="btn
-              btn- info">Add Pet</a></td>
+            <a href="{{action('AnimalController@create')}}" class="btn
+              btn- info">Add Pet</a>
             </div>
           </div>
         </div>

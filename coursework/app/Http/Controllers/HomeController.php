@@ -27,4 +27,8 @@ class HomeController extends Controller
       $animalsQuery = Animal::all();
       return view('/home', array('animals'=>$animalsQuery));
     }
+
+    public function requested(){
+      return view('requested');
+    }
 }

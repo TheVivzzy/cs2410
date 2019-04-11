@@ -42,7 +42,7 @@ class LoginController extends Controller
     if ($user->role ==1) {
       return redirect('/animals');
     } else {
-      return redirect('/display');
+      return redirect('/home');
     }
 
   }

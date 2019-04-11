@@ -2,36 +2,64 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-8 ">
       <div class="card">
-        <div class="card-header">Dashboard</div>
-        <div class="card-body">
-          @if (session('status'))
-          <div class="alert alert-success">
-            {{ session('status') }}
-          </div>
-          @endif
-          <table class="table table-striped table-bordered table-hover">
-            <thead>
-              <tr>
-                <th> Name</th><th> Dob</th>
-                <th> Description</th><th>Image</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($animals as $animal)
-              @if($animal->availability == 1)
-              <tr>
-                <td> {{$animal->name}} </td>
-                <td> {{$animal->dob}} </td>
-                <td> {{$animal->description}} </td>
-                <td><center><img style="width:50%; height:50%" src="{{asset('storage/img/'.$animal->picture)}}"></center></td>
-              </tr>
+        <div class="card-header">Check and Confirm Adoption</div>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div><br />
+        @endif
+        @if (\Session::has('success'))
+        <div class="alert alert-success">
+          <p>{{ \Session::get('success') }}</p>
+        </div><br />
+        @endif
+
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th> Name</th><th> Dob</th>
+              <th> Description</th><th>Image</th><th>Adoptions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($animals as $animal)
+            <?php $requested = false; ?>
+            @if($animal->availability == 1)
+            <tr>
+              <td> {{$animal->name}} </td>
+              <td> {{$animal->dob}} </td>
+              <td> {{$animal->description}} </td>
+              <td><center><img style="width:50%; height:50%" src="{{asset('storage/img/'.$animal->picture)}}"></center></td>
+              @foreach($adoptions as $adoption)
+              @if($adoption->userId == $userId && $adoption->animalId == $animal->id)
+              <td> Processing! </td>
+              <?php $requested = true; ?>
               @endif
               @endforeach
-            </tbody>
-          </table>
-        </div>
+              @if($requested == false)
+              <td>
+                <form method="POST" class="form-horizontal" action="{{action('RequestController@store', $animal['id'])}}" enctype="multipart/form-data">
+                  @csrf
+                  <input type="hidden" name="userId" value="{{ $userId }}"/>
+                  <input type="hidden" name="animalId" value="{{ $animal['id'] }}"/>
+                  <input type="hidden" name="name" value="{{ $animal['name'] }}"/>
+                  <input type="submit" class="btn btn-primary" value="Adopt Animal"/>
+                </form>
+
+              </td>
+              @endif
+            </tr>
+            @endif
+            @endforeach
+            <td><a href="{{route('viewrequests')}}" class="btn btn-primary" role="button">View All Adoptions</a></td>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
