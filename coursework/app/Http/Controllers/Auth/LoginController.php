@@ -40,9 +40,9 @@ class LoginController extends Controller
   /**view is changed based on role (user or admin) */
   protected function authenticated($request, $user) {
     if ($user->role ==1) {
-      return redirect('/listAll');
+      return redirect('/animals');
     } else {
-      return redirect('/');
+      return redirect('/display');
     }
 
   }

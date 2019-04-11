@@ -26,32 +26,34 @@
           @csrf
           <div class="col-md-8">
             <label >Name</label>
-            <input type="text" name="name"
-            placeholder="name" />
+            <input type="text" name="name" value="{{$animal->name}}" />
           </div>
           <div class="col-md-8">
             <label>Dob</label>
-            <input type="date" name="dob"
-            placeholder="yyyy/mm/dd" />
+            <input type="date" name="dob" value="{{$animal->dob}}" />
           </div>
           <div class="col-md-8">
             <label >Description</label>
-            <textarea rows="2" cols="50" name="description"> Animal description </textarea>
-            </div>
-            <div class="col-md-8">
-              <label>Picture</label>
-              <input type="file" name="picture"
-              placeholder="Image file" />
-            </div>
-            <div class="col-md-8">
-              <label>Availability</label>
-              <input type="hidden" name="availability"
-              value="0" />
-              <input type="checkbox" name="availability"/>
-            </div>
+            <textarea rows="1" cols="50" name="description"> {{$animal->description}} </textarea>
+          </div>
+          <div class="col-md-8">
+            <label>Animal Availability</label>
+            <select name="availability">
+              <option value="1">Available</option>
+              <option value="0">Not Available</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <label>Picture</label>
+            <input type="file" name="picture"
+            placeholder="Image file" />
+          </div>
+
           <div class="col-md-6 col-md-offset-4">
-            <input type="submit" class="btn btn-primary" />
+            <input type="submit" class="btn btn-primary" />            
             <input type="reset" class="btn btn-primary" />
+            <td><a href="{{route('display_animal')}}" class="btn btn-primary" role="button">Back</a></td>
+
           </a>
         </div>
       </form>

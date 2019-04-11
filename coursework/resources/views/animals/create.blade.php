@@ -35,7 +35,14 @@
           </div>
           <div class="col-md-8">
             <label >Description</label>
-            <textarea rows="2" cols="50" name="description"> Animal description </textarea>
+            <textarea rows="1" cols="50" name="description"> Animal description </textarea>
+            </div>
+            <div class="col-md-8">
+              <label>Animal Availability</label>
+              <select name="availability">
+                <option value="1">Available</option>
+                <option value="0">Not Available</option>
+              </select>
             </div>
             <div class="col-md-8">
               <label>Picture</label>
@@ -45,6 +52,7 @@
             <div class="col-md-6 col-md-offset-4">
               <input type="submit" class="btn btn-primary" />
               <input type="reset" class="btn btn-primary" />
+              <td><a href="{{route('display_animal')}}" class="btn btn-primary" role="button">Back</a></td>
             </div>
           </form>
         </div>

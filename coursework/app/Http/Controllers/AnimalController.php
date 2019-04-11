@@ -87,6 +87,7 @@ class AnimalController extends Controller
     $animal->name = $request->input('name');
     $animal->dob = $request->input('dob');
     $animal->description = $request->input('description');
+    $animal->availability = $request->input('availability');
     // $animal->updated_at = now();
     //Handles the uploading of the image
     if ($request->hasFile('picture')){
