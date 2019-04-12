@@ -42,3 +42,5 @@ Route::get('/requested', 'RequestController@index')->name('requested');
 Route::get('/viewrequests', 'RequestController@index')->name('viewrequests');
 
 Route::resource('animals', 'AnimalController');
+
+Route::post('/viewrequests/{adoption}/{animal}', ['as' => 'review', 'uses' => 'RequestController@review']);

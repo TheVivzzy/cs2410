@@ -14,7 +14,8 @@ class RequestController extends Controller
   //   return view('adoption_requests.edit', compact('animal'));
   // }
 
-  public function store(Request $request) {
+  public function store(Request $request)
+  {
     $adoption = $this->validate(request(),[
       'userId'=>'required',
       'animalId'=>'required',
@@ -31,8 +32,29 @@ class RequestController extends Controller
     return back()->with('succcess', 'Adoption request made');
   }
 
-  public function index(){
+  public function index()
+  {
     $adoptionsQuery = Adoption::all();
     return view('adoption_requests.viewrequests', array('adoptions'=>$adoptionsQuery));
+  }
+
+  public function review(Request $request, $id, $animalId)
+  {
+    $adoptions = Adoption::find($id);
+    $adoptions->adopted = $request->input('adopted');
+    $adoptions->save();
+
+    if($adoptions->adopted == 'Accepted'){
+      $animal = Animal::where('id', "=", $animalId)->first();
+      $animal->availability  = '0';
+      $animal->save();
+
+      $other = Adoption::where("animalId", '=', $animalId)->where('adopted', '=', 'Pending')->get();
+      foreach ($other as $info) {
+        $info->adopted = 'Rejected';
+        $info->save();
+      }
+    }
+    return back()->with('success', 'Adoption Request has updated');
   }
 }

@@ -5,10 +5,10 @@
   <div class="row justify-content-center">
     <div class="col-md-10 ">
       <div class="card">
-        <div class="card-header">Create an new Animal</div>
+        <div class="card-header">Create a new Animal</div>
         <!-- display the errors -->
         @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger">0
           <ul> @foreach ($errors->all() as $error)
             <li>{{ $error }}</li> @endforeach
           </ul>

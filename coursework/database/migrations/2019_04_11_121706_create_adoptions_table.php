@@ -14,6 +14,7 @@ class CreateAdoptionsTable extends Migration
     public function up()
     {
         Schema::create('adoptions', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->integer('userId');
             $table->integer('animalId');
             $table->string('name');

@@ -9,12 +9,13 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Pet Name</th>
+                <th>Owner</th>
                 <th>Dob</th>
                 <th>Description</th>
                 <!-- <th>Availability</th> -->
-                <th>Image</th>
-                <th colspan="3">Action</th>
+                <th>Availability</th>
+                <th colspan="3">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -23,7 +24,7 @@
                 <td>{{$temp['name']}}</td>
                 <td>{{$temp['dob']}}</td>
                 <td>{{$temp['description']}}</td>
-                <td>{{$temp['picture']}}</td>
+                <td>{{$temp['availability']}}</td>
                 <td><a href="{{action('AnimalController@show', $temp['id'])}}" class="btn
                   btn- primary">Details</a></td>
                   <td><a href="{{action('AnimalController@edit', $temp['id'])}}" class="btn
@@ -41,6 +42,8 @@
             </table>
             <a href="{{action('AnimalController@create')}}" class="btn
               btn- info">Add Pet</a>
+              <a href="{{route('viewrequests')}}" class="btn
+                btn- info">View All Adoptions</a>
             </div>
           </div>
         </div>
