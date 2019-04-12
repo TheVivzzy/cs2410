@@ -41,4 +41,4 @@ Route::get('/requested', 'RequestController@index')->name('requested');
 
 Route::get('/viewrequests', 'RequestController@index')->name('viewrequests');
 
-Route::resource('animals', 'RequestController');
+Route::resource('animals', 'AnimalController');

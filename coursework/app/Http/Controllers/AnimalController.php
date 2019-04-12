@@ -32,6 +32,7 @@ class AnimalController extends Controller
       'name' => 'required',
       'dob' => 'required',
       'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
+      'availability' => 'required',
     ]);
     //Handles the uploading of the image
     if ($request->hasFile('picture')){
@@ -54,6 +55,7 @@ class AnimalController extends Controller
     $animal->name = $request->input('name');
     $animal->dob = $request->input('dob');
     $animal->description = $request->input('description');
+    $animal->availability = $request->input('availability');
     $animal->created_at = now();
     $animal->picture = $fileNameToStore;
     // save the Animal object
@@ -88,6 +90,8 @@ class AnimalController extends Controller
     $this->validate(request(), [
       'name' => 'required',
       'dob' => 'required',
+      'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
+      'availability' => 'required',
     ]);
     $animal->name = $request->input('name');
     $animal->dob = $request->input('dob');
