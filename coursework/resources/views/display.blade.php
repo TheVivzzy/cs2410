@@ -30,7 +30,7 @@
           <tbody>
             @foreach($animals as $animal)
             <?php $requested = false; ?>
-            @if($animal->availability == 1)
+            @if($animal->availability == 'Available')
             <tr>
               <td> {{$animal->name}} </td>
               <td> {{$animal->dob}} </td>

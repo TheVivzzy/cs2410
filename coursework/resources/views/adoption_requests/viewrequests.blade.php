@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-md-10 ">
       <div class="card">
-        <div class="card-header">All Your Animal Requests</div>
+        <div class="card-header">Make Adoption Decisions</div>
         <div class="card-body">
           <!-- display the success status -->
           @if (\Session::has('success'))

@@ -74,7 +74,7 @@ class AnimalController extends Controller
     return view('animals.index', array('animal'=>$animal, 'adoptions'=>$adoptions, 'users'=>$users));
   }
 
-  public function user()
+  public function user() // might need to get of this ............
   {
     $animal = Animal::all();
     $adoptions = Adoption::all();
@@ -94,7 +94,7 @@ class AnimalController extends Controller
     $animal = Animal::find($id);
     $animal->delete();
     $adoptions = Adoption::where('animalId', '=', $id);
-    $adoptions = delete();
+    $adoptions->delete();
     return redirect('animals')->with('success','Animal has been deleted');
   }
 

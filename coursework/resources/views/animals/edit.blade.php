@@ -39,8 +39,8 @@
           <div class="col-md-8">
             <label>Animal Availability</label>
             <select name="availability">
-              <option value="1">Available</option>
-              <option value="0">Not Available</option>
+              <option value="Available">Available</option>
+              <option value="Unavailable">Not Available</option>
             </select>
           </div>
           <div class="col-md-8">
@@ -50,7 +50,7 @@
           </div>
 
           <div class="col-md-6 col-md-offset-4">
-            <input type="submit" class="btn btn-primary" />            
+            <input type="submit" class="btn btn-primary" />
             <input type="reset" class="btn btn-primary" />
             <td><a href="{{route('display_animal')}}" class="btn btn-primary" role="button">Back</a></td>
 

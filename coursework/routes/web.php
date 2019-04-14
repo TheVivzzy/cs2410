@@ -26,10 +26,10 @@ Route::get('/display','AnimalController@display')->name('display');
 //get resource for animals and assign it to animal controller
 Route::resource('animals', 'AnimalController');
 
-//user uses this display animal view
+//admin using this view to display animals with actions
 Route::get('animal/index', 'AnimalController@user')->name('display_animals');
 
-//admin using this view to display animals with actions
+// this is animal details page
 Route::get('animals/index', 'AnimalController@index')->name('display_animal');
 //adoption request page
 //Route::get('/home/requested','HomeController@requested')->name('adoption_request');
