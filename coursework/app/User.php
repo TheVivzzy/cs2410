@@ -37,6 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //checks isAdmin
     public function isAdmin()
     {
       if($this->role)
