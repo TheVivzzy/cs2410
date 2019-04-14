@@ -32,6 +32,7 @@ class AnimalController extends Controller
     $animal = $this->validate(request(), [
       'name' => 'required',
       'dob' => 'required',
+      'type' => 'required',
       'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
       'availability' => 'required',
     ]);
@@ -55,6 +56,7 @@ class AnimalController extends Controller
     $animal = new Animal;;
     $animal->name = $request->input('name');
     $animal->dob = $request->input('dob');
+    $animal->type = $request->input('type');
     $animal->description = $request->input('description');
     $animal->availability = $request->input('availability');
     $animal->created_at = now();
@@ -104,11 +106,13 @@ class AnimalController extends Controller
     $this->validate(request(), [
       'name' => 'required',
       'dob' => 'required',
+      'type' => 'required',
       'picture' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
       'availability' => 'required',
     ]);
     $animal->name = $request->input('name');
     $animal->dob = $request->input('dob');
+    $animal->type = $request->input('type');
     $animal->description = $request->input('description');
     $animal->availability = $request->input('availability');
     // $animal->updated_at = now();

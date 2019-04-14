@@ -10,7 +10,8 @@
             <thead>
               <tr>
                 <th>Pet Name</th>
-                <th>Dob</th>
+                <th>Date Of Birth</th>
+                <th>Type</th>
                 <th>Description</th>
                 <th>Availability</th>
                 <th>Owner</th>
@@ -22,6 +23,7 @@
               <tr>
                 <td>{{$temp['name']}}</td>
                 <td>{{$temp['dob']}}</td>
+                <td>{{$temp['type']}}</td>
                 <td>{{$temp['description']}}</td>
                 <td>{{$temp['availability']}}</td>
                 <?php

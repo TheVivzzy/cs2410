@@ -23,7 +23,7 @@
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th> Name</th><th> Dob</th>
+              <th> Name</th><th>Type</th><th>Date Of Birth</th>
               <th> Description</th><th>Image</th><th>Adoptions</th>
             </tr>
           </thead>
@@ -33,6 +33,7 @@
             @if($animal->availability == 'Available')
             <tr>
               <td> {{$animal->name}} </td>
+              <td> {{$animal->type}} </td>
               <td> {{$animal->dob}} </td>
               <td> {{$animal->description}} </td>
               <td><center><img style="width:50%; height:50%" src="{{asset('storage/img/'.$animal->picture)}}"></center></td>

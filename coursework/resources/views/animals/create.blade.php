@@ -34,6 +34,20 @@
             placeholder="yyyy/mm/dd" />
           </div>
           <div class="col-md-8">
+            <label>Type</label>
+            <select name="type">
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Parrot">Parrot</option>
+              <option value="Fish">Fish</option>
+              <option value="Rabbit">Rabbit</option>
+              <option value="Snake">Snake</option>
+              <option value="Mouse">Mouse</option>
+              <option value="Turtle">Turtle</option>
+              <option value="Lizard">Lizard</option>
+            </select>
+          </div>
+          <div class="col-md-8">
             <label >Description</label>
             <textarea rows="1" cols="50" name="description"> Animal description </textarea>
             </div>

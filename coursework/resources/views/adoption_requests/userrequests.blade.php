@@ -17,7 +17,7 @@
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
-                <th>Pet Name</th><th>Decision</th>
+                <th>Pet Name</th><th>Type</td><th>Decision</th>
               </tr>
             </thead>
             <tbody>
@@ -25,6 +25,7 @@
               @if($adoption->userId == $userId)
               <tr>
                 <td> {{$adoption->name}} </td>
+                <td> {{$animal->type}} </td>
                 <td> {{$adoption->adopted}} </td>
               </tr>
               @endif

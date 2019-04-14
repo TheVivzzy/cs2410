@@ -28,6 +28,7 @@ class RequestController extends Controller
     $adoption->animalId = $request->input('animalId');
     $adoption->name = $request->input('name');
 
+
     $adoption->save();
 
     return back()->with('succcess', 'Adoption request made');
