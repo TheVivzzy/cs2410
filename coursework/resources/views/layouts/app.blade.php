@@ -31,10 +31,43 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                  @if(Auth::check() && Auth::user()->role == 0)
+                        <ul class="nav navbar-nav">
+                            &nbsp;
+                            @guest
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('home') }}">Home</a>
+                            </li>
 
-                    </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('display') }}">Make Adoptions</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('userrequests') }}">Adoption Requests</a>
+                            </li>
+                            @endguest
+                        </ul>
+                        @else
+                        <ul class="nav navbar-nav">
+                            &nbsp;
+                            @guest
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('animals') }}">Admin Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('viewrequests') }}">Review Decisions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('allrequests') }}">All Requests </a>
+                            </li>
+
+                            @endguest
+                        </ul>
+                        @endif
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -51,7 +84,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                   <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -12,12 +12,11 @@
             <p>{{ \Session::get('success') }}</p>
           </div><br />
           @endif
-          <a href="{{route('home')}}"> Animals </a>
           <br>
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
-                <th> AnimalId</th><th>Name</th><th>User Id</th>
+                <th>AnimalId</th><th>Name</th><th>User Id</th>
                 <th> Decision</th>
               </tr>
             </thead>

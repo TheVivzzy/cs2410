@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8 ">
       <div class="card">
-        <div class="card-header">Check and Confirm Adoption</div>
+        <div class="card-header">Make Adoption Requests</div>
         @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -49,7 +49,7 @@
                   <input type="hidden" name="userId" value="{{ $userId }}"/>
                   <input type="hidden" name="animalId" value="{{ $animal['id'] }}"/>
                   <input type="hidden" name="name" value="{{ $animal['name'] }}"/>
-                  <input type="submit" class="btn btn-primary" value="Adopt Animal"/>
+                  <input type="submit" class="btn btn-primary" value="Adopt This Animal"/>
                 </form>
 
               </td>
@@ -57,9 +57,10 @@
             </tr>
             @endif
             @endforeach
-            <td><a href="{{route('viewrequests')}}" class="btn btn-primary" role="button">View All Adoptions</a></td>
           </tbody>
         </table>
+
+        <td><a href="{{route('userrequests')}}" class="btn btn-primary" role="button">View Your Adoption Requests</a></td>
       </div>
     </div>
   </div>

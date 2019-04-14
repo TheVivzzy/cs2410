@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use App\Animal;
 Use App\Adoption;
+Use App\User;
 
 class RequestController extends Controller
 {
@@ -44,7 +45,8 @@ class RequestController extends Controller
     $adoptions->adopted = $request->input('adopted');
     $adoptions->save();
 
-    if($adoptions->adopted == 'Accepted'){
+    if($adoptions->adopted == 'Accepted')
+    {
       $animal = Animal::where('id', "=", $animalId)->first();
       $animal->availability  = '0';
       $animal->save();
@@ -56,5 +58,21 @@ class RequestController extends Controller
       }
     }
     return back()->with('success', 'Adoption Request has updated');
+  }
+
+  public function user()
+  {
+    $animalsQuery = Animal::all();
+    $userId = \Auth::user()->id;
+    $adoptionsQuery = Adoption::all();
+    return view('adoption_requests.userrequests', array('animals'=>$animalsQuery, 'userId'=>$userId, 'adoptions'=>$adoptionsQuery));
+  }
+
+  public function admin()
+  {
+    $animalsQuery = Animal::all();
+    $users = User::all();
+    $adoptionsQuery = Adoption::all();
+    return view ('adoption_requests.allrequests', array('animals'=>$animalsQuery, 'users'=>$users, 'adoptions'=>$adoptionsQuery));
   }
 }

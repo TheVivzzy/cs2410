@@ -13,9 +13,11 @@
           </div>
           @endif
 
-          You are logged in!
+          Hello {{$username}}, You are logged in! <br> Welcome to Aston Animal Sanctuary. <br>
+          Here we aim to make sure every animal deserves a warm, comfortable and caring home.
+
           <br> <br>
-          <a href="{{ route('display_animals') }}" class="btn btn-primary">Display Animals</a>
+          <a href="{{ route('display') }}" class="btn btn-primary">Display Animals</a>
         </div>
       </div>
     </div>

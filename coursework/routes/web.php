@@ -20,15 +20,17 @@ Auth::routes();
 //home url assigned to home controller
 Route::get('/home', 'HomeController@index')->name('home');
 
-//user display page
-Route::get('/display','AnimalController@display')->name('display_animals');
+//user display page for adopting animals
+Route::get('/display','AnimalController@display')->name('display');
 
 //get resource for animals and assign it to animal controller
 Route::resource('animals', 'AnimalController');
 
-//display animal and assign animal controller
-Route::get('animal/index', 'AnimalController@index')->name('display_animal');
+//user uses this display animal view
+Route::get('animal/index', 'AnimalController@user')->name('display_animals');
 
+//admin using this view to display animals with actions
+Route::get('animals/index', 'AnimalController@index')->name('display_animal');
 //adoption request page
 //Route::get('/home/requested','HomeController@requested')->name('adoption_request');
 
@@ -44,3 +46,9 @@ Route::get('/viewrequests', 'RequestController@index')->name('viewrequests');
 Route::resource('animals', 'AnimalController');
 
 Route::post('/viewrequests/{adoption}/{animal}', ['as' => 'review', 'uses' => 'RequestController@review']);
+
+Route::get('/userrequests','RequestController@user')->name('userrequests');
+
+Route::get('/user/{username}', 'UserController@show')->name('user');
+
+Route::get('/allrequests','RequestController@admin')->name('allrequests');

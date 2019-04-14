@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Animal;
 use App\Adoption;
+use App\User;
 use Validator;
 
 class AnimalController extends Controller
@@ -67,8 +68,19 @@ class AnimalController extends Controller
 
   public function index()
   {
-    $animal = Animal::all()->toArray();
-    return view('animals.index', compact('animal'));
+    $animal = Animal::all();
+    $adoptions = Adoption::all();
+    $users = User::all();
+    return view('animals.index', array('animal'=>$animal, 'adoptions'=>$adoptions, 'users'=>$users));
+  }
+
+  public function user()
+  {
+    $animal = Animal::all();
+    $adoptions = Adoption::all();
+    $users = User::all();
+    return view('animals.index', array('animal'=>$animal, 'adoptions'=>$adoptions, 'users'=>$users));
+
   }
 
   public function show($id)
@@ -81,6 +93,8 @@ class AnimalController extends Controller
   {
     $animal = Animal::find($id);
     $animal->delete();
+    $adoptions = Adoption::where('animalId', '=', $id);
+    $adoptions = delete();
     return redirect('animals')->with('success','Animal has been deleted');
   }
 

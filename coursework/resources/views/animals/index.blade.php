@@ -4,17 +4,16 @@
   <div class="row justify-content-center">
     <div class="col-md-10 ">
       <div class="card">
-        <div class="card-header">Display all Animals</div>
+        <div class="card-header">Admin Portal - All Animal Adoptions</div>
         <div class="card-body">
           <table class="table table-striped">
             <thead>
               <tr>
                 <th>Pet Name</th>
-                <th>Owner</th>
                 <th>Dob</th>
                 <th>Description</th>
-                <!-- <th>Availability</th> -->
                 <th>Availability</th>
+                <th>Owner</th>
                 <th colspan="3">Actions</th>
               </tr>
             </thead>
@@ -25,6 +24,17 @@
                 <td>{{$temp['dob']}}</td>
                 <td>{{$temp['description']}}</td>
                 <td>{{$temp['availability']}}</td>
+                <?php
+                $username = "";
+                $adopt = $adoptions->where('animalId', '=', $temp['id'])->where('adopted', '=', 'Accepted')->first();
+                if($adopt != null)
+                {
+                  $userId = $adopt['userId'];
+                  $user = $users->where('id', '=', $userId)->first();
+                  $username = $user['username'];
+                }
+                ?>
+                <td><a href="{{route('user', ['username'=> $username])}}">{{$username}}</a></td>
                 <td><a href="{{action('AnimalController@show', $temp['id'])}}" class="btn
                   btn- primary">Details</a></td>
                   <td><a href="{{action('AnimalController@edit', $temp['id'])}}" class="btn
@@ -41,9 +51,9 @@
               </tbody>
             </table>
             <a href="{{action('AnimalController@create')}}" class="btn
-              btn- info">Add Pet</a>
+              btn-primary">Add Pet</a>
               <a href="{{route('viewrequests')}}" class="btn
-                btn- info">View All Adoptions</a>
+                btn-primary">View All Adoptions</a>
             </div>
           </div>
         </div>
