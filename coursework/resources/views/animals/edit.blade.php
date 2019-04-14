@@ -52,7 +52,7 @@
           <div class="col-md-6 col-md-offset-4">
             <input type="submit" class="btn btn-primary" />
             <input type="reset" class="btn btn-primary" />
-            <td><a href="{{route('display_animal')}}" class="btn btn-primary" role="button">Back</a></td>
+            <td><a href="{{route('display_animals')}}" class="btn btn-primary" role="button">Back</a></td>
 
           </a>
         </div>
