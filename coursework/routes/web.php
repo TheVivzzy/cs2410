@@ -52,7 +52,3 @@ Route::get('/userrequests','RequestController@user')->name('userrequests');
 Route::get('/user/{username}', 'UserController@show')->name('user');
 
 Route::get('/allrequests','RequestController@admin')->name('allrequests');
-
-Route::group(['middleware'=>['auth','admin'], function(){
-  // put all admin routes(whole line) in here
-}]);

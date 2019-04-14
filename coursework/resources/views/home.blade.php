@@ -13,8 +13,8 @@
           </div>
           @endif
 
-          Hello {{$username}}, you are logged in! <br> Welcome to Aston Animal Sanctuary. <br>
-          We aim to make sure every animal deserves a warm, comfortable and caring home.
+          Hello {{$username}}, You are logged in! <br> Welcome to Aston Animal Sanctuary. <br>
+          Here we aim to make sure every animal deserves a warm, comfortable and caring home.
 
           <br> <br>
           <a href="{{ route('display') }}" class="btn btn-primary">Display Animals</a>
