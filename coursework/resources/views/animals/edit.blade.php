@@ -25,15 +25,15 @@
           @method('PATCH')
           @csrf
           <div class="col-md-8">
-            <label >Name</label>
+            <label >Name:</label>
             <input type="text" name="name" value="{{$animal->name}}" />
           </div>
           <div class="col-md-8">
-            <label>Dob</label>
+            <label>Date Of Birth:</label>
             <input type="date" name="dob" value="{{$animal->dob}}" />
           </div>
           <div class="col-md-8">
-            <label>Type</label>
+            <label>Type:</label>
             <select name="type">
               <option value="Dog">Dog</option>
               <option value="Cat">Cat</option>
@@ -47,18 +47,18 @@
             </select>
           </div>
           <div class="col-md-8">
-            <label >Description</label>
+            <label >Description:</label>
             <textarea rows="1" cols="50" name="description"> {{$animal->description}} </textarea>
           </div>
           <div class="col-md-8">
-            <label>Animal Availability</label>
+            <label>Animal Availability:</label>
             <select name="availability">
               <option value="Available">Available</option>
               <option value="Unavailable">Not Available</option>
             </select>
           </div>
           <div class="col-md-8">
-            <label>Picture</label>
+            <label>Picture:</label>
             <input type="file" name="picture"
             placeholder="Image file" />
           </div>

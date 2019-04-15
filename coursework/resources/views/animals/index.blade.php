@@ -36,7 +36,10 @@
                   $username = $user['username'];
                 }
                 ?>
+                @if($username != "")
                 <td><a href="{{route('user', ['username'=> $username])}}">{{$username}}</a></td>
+                @else <td>No Owner Yet</td>
+                @endif
                 <td><a href="{{action('AnimalController@show', $temp['id'])}}" class="btn
                   btn- primary">Details</a></td>
                   <td><a href="{{action('AnimalController@edit', $temp['id'])}}" class="btn

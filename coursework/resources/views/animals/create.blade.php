@@ -24,17 +24,17 @@
           action="{{url('animals') }}" enctype="multipart/form-data">
           @csrf
           <div class="col-md-8">
-            <label >Name</label>
+            <label >Name:</label>
             <input type="text" name="name"
             placeholder="name" />
           </div>
           <div class="col-md-8">
-            <label>Dob</label>
+            <label>Date of Birth:</label>
             <input type="date" name="dob"
             placeholder="yyyy/mm/dd" />
           </div>
           <div class="col-md-8">
-            <label>Type</label>
+            <label>Type:</label>
             <select name="type">
               <option value="Dog">Dog</option>
               <option value="Cat">Cat</option>
@@ -48,21 +48,21 @@
             </select>
           </div>
           <div class="col-md-8">
-            <label >Description</label>
+            <label >Description:</label>
             <textarea rows="1" cols="50" name="description"> Animal description </textarea>
             </div>
             <div class="col-md-8">
-              <label>Animal Availability</label>
+              <label>Animal Availability:</label>
               <select name="availability">
                 <option value="Available">Available</option>
                 <option value="Unavailable">Not Available</option>
               </select>
             </div>
             <div class="col-md-8">
-              <label>Picture</label>
+              <label>Picture:</label>
               <input type="file" name="picture"
               placeholder="Image file" />
-            </div>
+            </div> <br>
             <div class="col-md-6 col-md-offset-4">
               <input type="submit" class="btn btn-primary" />
               <input type="reset" class="btn btn-primary" />

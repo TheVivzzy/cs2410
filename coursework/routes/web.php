@@ -53,6 +53,13 @@ Route::get('/user/{username}', 'UserController@show')->name('user');
 
 Route::get('/allrequests','RequestController@admin')->name('allrequests');
 
-Route::group(['middleware'=>['auth','admin'], function(){
+Route::middleware(['auth','admin'])->group(function() {
   // put all admin routes(whole line) in here
-}]);
+Route::get('/user/{username}', 'UserController@show')->name('user');
+Route::get('/viewrequests', 'RequestController@index')->name('viewrequests');
+Route::get('/allrequests','RequestController@admin')->name('allrequests');
+Route::get('animal/index', 'AnimalController@user')->name('display_animals');
+Route::resource('animals', 'AnimalController');
+Route::get('animals/index', 'AnimalController@index')->name('display_animal');
+
+});
