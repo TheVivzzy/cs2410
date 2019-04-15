@@ -16,7 +16,7 @@
                 src="{{ asset('storage/img/'.$animal['picture'])}}"></td></tr>
               </table>
               <table><tr>
-                <td><a href="{{route('display_animal')}}" class="btn btn-primary" role="button">Back to the list</a></td>
+                <td><a href="{{route('display_animals')}}" class="btn btn-primary" role="button">Back</a></td>
                 <td><a href="{{action('AnimalController@edit', $animal['id'])}}" class="btn
                   btn- warning">Edit</a></td>
                   <td><form action="{{action('AnimalController@destroy', $animal['id'])}}"

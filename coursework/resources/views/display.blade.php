@@ -36,7 +36,7 @@
               <td> {{$animal->type}} </td>
               <td> {{$animal->dob}} </td>
               <td> {{$animal->description}} </td>
-              <td><center><img style="width:50%; height:50%" src="{{asset('storage/img/'.$animal->picture)}}"></center></td>
+              <td><center><img style="width:50%; height:50%" src="{{asset('storage/img/'.$animal['picture'])}}"></center></td>
               @foreach($adoptions as $adoption)
               @if($adoption->userId == $userId && $adoption->animalId == $animal->id)
               <td> Processing! </td>

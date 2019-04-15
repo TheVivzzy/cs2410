@@ -26,14 +26,6 @@ Route::get('/display','AnimalController@display')->name('display');
 //get resource for animals and assign it to animal controller
 Route::resource('animals', 'AnimalController');
 
-//admin using this view to display animals with actions
-Route::get('animal/index', 'AnimalController@user')->name('display_animals');
-
-// this is animal details page
-Route::get('animals/index', 'AnimalController@index')->name('display_animal');
-//adoption request page
-//Route::get('/home/requested','HomeController@requested')->name('adoption_request');
-
 //get resource for requests and assign request controller
 Route::resource('requests', 'RequestController');
 
@@ -41,25 +33,20 @@ Route::get('/requested/{animals}', 'RequestController@create')->name('adoption_r
 
 Route::get('/requested', 'RequestController@index')->name('requested');
 
-Route::get('/viewrequests', 'RequestController@index')->name('viewrequests');
-
-Route::resource('animals', 'AnimalController');
-
 Route::post('/viewrequests/{adoption}/{animal}', ['as' => 'review', 'uses' => 'RequestController@review']);
 
 Route::get('/userrequests','RequestController@user')->name('userrequests');
 
-Route::get('/user/{username}', 'UserController@show')->name('user');
-
-Route::get('/allrequests','RequestController@admin')->name('allrequests');
 
 Route::middleware(['auth','admin'])->group(function() {
   // put all admin routes(whole line) in here
-Route::get('/user/{username}', 'UserController@show')->name('user');
-Route::get('/viewrequests', 'RequestController@index')->name('viewrequests');
-Route::get('/allrequests','RequestController@admin')->name('allrequests');
-Route::get('animal/index', 'AnimalController@user')->name('display_animals');
-Route::resource('animals', 'AnimalController');
-Route::get('animals/index', 'AnimalController@index')->name('display_animal');
-
+  Route::get('/user/{username}', 'UserController@show')->name('user');
+  Route::get('/viewrequests', 'RequestController@index')->name('viewrequests');
+  Route::get('/allrequests','RequestController@admin')->name('allrequests');
+  //admin using this view to display animals with actions
+  Route::get('animal/index', 'AnimalController@user')->name('display_animals');
+  Route::resource('animals', 'AnimalController');
+  Route::get('animals/index', 'AnimalController@index')->name('display_animal');
+// this is animal details page
+  Route::get('animals/index', 'AnimalController@index')->name('display_animal');
 });
