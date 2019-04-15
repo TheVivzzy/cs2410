@@ -13,6 +13,7 @@
           </div><br />
           @endif
           <br>
+          <!-- table to display decision of each adoption request -->
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>

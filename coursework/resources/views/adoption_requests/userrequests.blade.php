@@ -12,6 +12,7 @@
             <p>{{ \Session::get('success') }}</p>
           </div>
           @endif
+          <!-- Table to display to adoption decision made which is viewed by the user -->
             <a href="{{route('display')}}" class="btn btn-primary" role="button"> Back </a>
             <br> <br>
           <table class="table table-striped table-bordered table-hover">

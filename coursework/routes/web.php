@@ -26,20 +26,24 @@ Route::get('/display','AnimalController@display')->name('display');
 //get resource for requests and assign request controller
 Route::resource('requests', 'RequestController');
 
-//display
+//display adoption view based on animal id
 Route::get('/requested/{animals}', 'RequestController@create')->name('adoption_requests');
 
+//used for getting display adoption request
 Route::get('/requested', 'RequestController@index')->name('requested');
 
+//return back success when adoption decision has been made and submitted
 Route::post('/viewrequests/{adoption}/{animal}', ['as' => 'review', 'uses' => 'RequestController@review']);
 
+//get the requests view for the user
 Route::get('/userrequests','RequestController@user')->name('userrequests');
 
 //get resource and assign home to home controller
 Route::resource('home', 'HomeController');
 
 
-
+//middleware grouping of routes, used to prevent
+//unauthorised users from hard typing urls and accessing those views
 Route::middleware(['auth','admin'])->group(function() {
   // put all admin routes(whole line) in here
   Route::get('/user/{username}', 'UserController@show')->name('user');

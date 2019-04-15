@@ -6,6 +6,7 @@
       <div class="card">
         <div class="card-header">Display all Animals</div>
         <div class="card-body">
+          <!-- table to display owners details for each adoption -->
           <table class="table table-striped">
             <thead>
               <tr>

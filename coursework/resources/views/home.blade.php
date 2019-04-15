@@ -4,6 +4,8 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
+
+        <!-- Dashboard for the user  -->
         <div class="card-header">Dashboard</div>
 
         <div class="card-body">

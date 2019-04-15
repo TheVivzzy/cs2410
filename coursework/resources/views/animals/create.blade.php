@@ -18,7 +18,7 @@
         <div class="alert alert-success">
           <p>{{ \Session::get('success') }}</p>
         </div><br /> @endif
-        <!-- define the form -->
+        <!-- defines the form for the admin to create a new animal entry -->
         <div class="card-body">
           <form class="form-horizontal" method="POST"
           action="{{url('animals') }}" enctype="multipart/form-data">

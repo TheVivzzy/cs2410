@@ -31,6 +31,7 @@ class HomeController extends Controller
       return view('/home', array('animals'=>$animalsQuery, 'username'=>$username));
     }
 
+    // return the requested view
     public function requested(){
       return view('requested');
     }

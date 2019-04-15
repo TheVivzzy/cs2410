@@ -4,6 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-md-10 ">
       <div class="card">
+        <!-- admin portal which displays all the animals and option to delete, add or edit an animal entry -->
         <div class="card-header">Admin Portal - All Animal Adoptions</div>
         <div class="card-body">
           <table class="table table-striped">
@@ -19,6 +20,8 @@
               </tr>
             </thead>
             <tbody>
+              <!-- get each databse entry for each animal and assign it to temp variable,
+                  return back the animal information-->
               @foreach($animal as $temp)
               <tr>
                 <td>{{$temp['name']}}</td>

@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8 ">
       <div class="card">
-        <div class="card-header">Make Adoption Requests</div>
+        <b><div class="card-header">Make Adoption Requests</div></b>
         @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -20,10 +20,11 @@
         </div><br />
         @endif
 
+        <!-- Form used to filter out types of animals -->
         <form method="GET" action="{{action('AnimalController@display')}}">
           <div align="right">
             <br>
-           <label>Filter Animal Type:</label>
+           <b><label>Filter Animal Type:</label></b>
             <select name="filter" class="btn btn-primary">
               <option value="">All Types</option>
               <option value="Dog">Dog</option>
@@ -41,6 +42,7 @@
           </div>
         </form>
 
+        <!-- Table which display information in the view -->
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
@@ -49,6 +51,7 @@
             </tr>
           </thead>
           <tbody>
+            <!-- Iterate through all information in animal database and return back animal information -->
             @foreach($animals as $animal)
             <?php $requested = false; ?>
             @if($animal->availability == 'Available' && ($animal->type == $filter || $filter == ""))
@@ -66,6 +69,7 @@
               @endforeach
               @if($requested == false)
               <td>
+                <!-- Store into database -->
                 <form method="POST" class="form-horizontal" action="{{action('RequestController@store', $animal['id'])}}" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="userId" value="{{ $userId }}"/>
@@ -81,7 +85,6 @@
             @endforeach
           </tbody>
         </table>
-
         <td><a href="{{route('userrequests')}}" class="btn btn-primary" role="button">View Your Adoption Requests</a></td>
       </div>
     </div>

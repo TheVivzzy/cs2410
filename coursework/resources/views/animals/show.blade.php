@@ -6,12 +6,14 @@
       <div class="card">
         <div class="card-header">Display all Animals</div>
         <div class="card-body">
+
+          <!-- table which shows and obtains the animal information from the database -->
           <table class="table table-striped" border="1" >
-            <tr> <td> <b>Name </th> <td> {{$animal['name']}}</td></tr>
-              <tr> <th>Dob </th> <td>{{$animal['dob']}}</td></tr>
-              <tr> <th>Description </th> <td style="max-width:150px;" >{{$animal['description']}}</td></tr>
-              <tr> <th>Availability </th> <td>{{$animal['availability']}}</td></tr>
-              <tr> <td>Image </th> <td>{{$animal['picture']}}</td></tr>
+            <tr> <td> <b>Name</th> <td> {{$animal['name']}}</td></tr>
+              <tr> <th>Date of Birth</th> <td>{{$animal['dob']}}</td></tr>
+              <tr> <th>Description</th> <td style="max-width:150px;" >{{$animal['description']}}</td></tr>
+              <tr> <th>Availability</th> <td>{{$animal['availability']}}</td></tr>
+              <tr> <td>Imag </th> <td>{{$animal['picture']}}</td></tr>
               <tr> <td colspan='2' ><img style="width:100%; height:100%"
                 src="{{ asset('storage/img/'.$animal['picture'])}}"></td></tr>
               </table>

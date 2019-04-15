@@ -19,6 +19,7 @@
           <p>{{ \Session::get('success') }}</p>
         </div><br />
         @endif
+        <!-- edit form for the admin to edit an animal entry -->
         <div class="card-body">
           <form class="form-horizontal" method="POST" action="{{ action('AnimalController@update',
           $animal['id']) }} " enctype="multipart/form-data" >

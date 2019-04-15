@@ -13,6 +13,8 @@
           </div><br />
           @endif
           <br>
+         <!-- Table to display the adoption request made by a user and the ability
+              for the admin to make a decision -->
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>

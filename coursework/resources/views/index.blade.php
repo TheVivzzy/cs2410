@@ -16,7 +16,7 @@
 <body>
 @include('layouts.app')
 
-        <!--- Image Slider -->
+        <!--- Image Slider and Slideshow on landing page -->
         <div id="slides" class ="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators" class ="active">
                 <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -53,7 +53,7 @@
 </div>
 
 
-<!---About us -->
+<!---About us section-->
 <div class="container-fluid padding">
     <div class="welcome text-center">
         <div class="col-12">

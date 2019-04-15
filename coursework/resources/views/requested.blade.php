@@ -1,6 +1,8 @@
 @extends('layouts.app')
-
 @section('content')
+
+<!-- When pressing the adopt button in the user view to Adopt,
+ returns back your request has been made on button click -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">

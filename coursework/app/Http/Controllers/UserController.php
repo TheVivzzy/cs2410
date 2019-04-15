@@ -7,6 +7,10 @@ use App\User;
 
 class UserController extends Controller
 {
+    /**
+      * obtain username of the user and return back their details
+      * to display which owner adopts an animal
+     */
     public function show($username)
     {
       $users = User::where('username', '=', $username)->first();

@@ -9,12 +9,8 @@ Use App\User;
 
 class RequestController extends Controller
 {
-  // public function create($id)
-  // {
-  //   $animal = Animal::find($id);
-  //   return view('adoption_requests.edit', compact('animal'));
-  // }
 
+  // store the info to the database
   public function store(Request $request)
   {
     $adoption = $this->validate(request(),[
@@ -34,12 +30,14 @@ class RequestController extends Controller
     return back()->with('succcess', 'Adoption request made');
   }
 
+  // return the view requests view for admin
   public function index()
   {
     $adoptionsQuery = Adoption::all();
     return view('adoption_requests.viewrequests', array('adoptions'=>$adoptionsQuery));
   }
 
+  // return back success when adoption decision has been made and submitted
   public function review(Request $request, $id, $animalId)
   {
     $adoptions = Adoption::find($id);
@@ -61,6 +59,7 @@ class RequestController extends Controller
     return back()->with('success', 'Adoption Request has updated');
   }
 
+  // return back the user request in the view for animals
   public function user()
   {
     $animalsQuery = Animal::all();
@@ -69,6 +68,7 @@ class RequestController extends Controller
     return view('adoption_requests.userrequests', array('animals'=>$animalsQuery, 'userId'=>$userId, 'adoptions'=>$adoptionsQuery));
   }
 
+  //return back the admins view only for all the adoption requests and decision ever made 
   public function admin()
   {
     $animalsQuery = Animal::all();

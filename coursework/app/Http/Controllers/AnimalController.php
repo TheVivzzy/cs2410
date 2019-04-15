@@ -22,11 +22,13 @@ class AnimalController extends Controller
     'adoptions'=>$adoptionsQuery, 'requested'=>$requested, 'filter'=>$filter));
   }
 
+  //create the view and return it
   public function create()
   {
     return view('animals/create');
   }
 
+  // store information to the database
   public function store(Request $request)
   {
     // form validation
@@ -77,7 +79,7 @@ class AnimalController extends Controller
     return view('animals.index', array('animal'=>$animal, 'adoptions'=>$adoptions, 'users'=>$users));
   }
 
-  public function user() // might need to get of this ............
+  public function user()
   {
     $animal = Animal::all();
     $adoptions = Adoption::all();
@@ -86,12 +88,14 @@ class AnimalController extends Controller
 
   }
 
+  // return back the view with the animal information
   public function show($id)
   {
     $animal = Animal::find($id);
     return view('animals.show',compact('animal'));
   }
 
+  // destory the relevant information from database and view
   public function destroy($id)
   {
     $animal = Animal::find($id);
@@ -101,6 +105,7 @@ class AnimalController extends Controller
     return redirect('animals')->with('success','Animal has been deleted');
   }
 
+  // update the view with new or current information
   public function update(Request $request, $id)
   {
     $animal = Animal::find($id);
@@ -137,6 +142,7 @@ class AnimalController extends Controller
     return redirect('animals')->with('success','Animal has been updated');
   }
 
+  // edit information and return back this edited information to the view 
   public function edit($id)
   {
     $animal = Animal::find($id);
