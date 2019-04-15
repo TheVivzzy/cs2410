@@ -58,7 +58,7 @@
             <a href="{{action('AnimalController@create')}}" class="btn
               btn-primary">Add Pet</a>
               <a href="{{route('viewrequests')}}" class="btn
-                btn-primary">View All Adoptions</a>
+                btn-primary">View All Adoption Decisions</a>
             </div>
           </div>
         </div>

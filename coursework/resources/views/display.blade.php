@@ -20,17 +20,38 @@
         </div><br />
         @endif
 
+        <form method="GET" action="{{action('AnimalController@display')}}">
+          <div align="right">
+            <br>
+           <label>Filter Animal Type:</label>
+            <select name="filter" class="btn btn-primary">
+              <option value="">All Types</option>
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Parrot">Parrot</option>
+              <option value="Fish">Fish</option>
+              <option value="Rabbit">Rabbit</option>
+              <option value="Snake">Snake</option>
+              <option value="Mouse">Mouse</option>
+              <option value="Turtle">Turtle</option>
+              <option value="Lizard">Lizard</option>
+            </select>
+            <input type="submit" name="submit" value="Filter" class="btn btn-primary">
+            <br> <br>
+          </div>
+        </form>
+
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
               <th> Name</th><th>Type</th><th>Date Of Birth</th>
-              <th> Description</th><th>Image</th><th>Adoptions</th>
+              <th> Description</th><th>Image</th><th>Request to Adopt</th>
             </tr>
           </thead>
           <tbody>
             @foreach($animals as $animal)
             <?php $requested = false; ?>
-            @if($animal->availability == 'Available')
+            @if($animal->availability == 'Available' && ($animal->type == $filter || $filter == ""))
             <tr>
               <td> {{$animal->name}} </td>
               <td> {{$animal->type}} </td>

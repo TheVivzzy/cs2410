@@ -25,12 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+
       $animalsQuery = Animal::all();
       $username = \Auth::user()->firstname;
-      return view('/home', array('animals'=>$animalsQuery, 'username'=>$username, ));
+      return view('/home', array('animals'=>$animalsQuery, 'username'=>$username));
     }
 
     public function requested(){
       return view('requested');
     }
+
 }

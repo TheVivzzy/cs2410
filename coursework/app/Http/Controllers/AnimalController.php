@@ -11,14 +11,15 @@ use Validator;
 
 class AnimalController extends Controller
 {
-  public function display()
+  public function display(Request $request)
   {
+    $filter = $request->input("filter");
     $requested = false;
     $animalsQuery = Animal::all();
     $userId = \Auth::user()->id;
     $adoptionsQuery = Adoption::all();
     return view ('/display', array('animals'=>$animalsQuery, 'userId'=>$userId,
-    'adoptions'=>$adoptionsQuery, 'requested'=>$requested));
+    'adoptions'=>$adoptionsQuery, 'requested'=>$requested, 'filter'=>$filter));
   }
 
   public function create()
