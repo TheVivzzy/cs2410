@@ -24,6 +24,7 @@
             </thead>
             <tbody>
               @foreach($adoptions as $adoption)
+              @foreach($animals as $animal)
               @if($adoption->adopted == 'Pending')
               <tr>
                 <td> {{$adoption->animalId}} </td>
@@ -44,6 +45,7 @@
                  </td>
               </tr>
               @endif
+              @endforeach
               @endforeach
             </tbody>
           </table>

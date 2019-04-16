@@ -23,13 +23,17 @@
             </thead>
             <tbody>
               @foreach($adoptions as $adoption)
+              @foreach ($animals as $animal)
               @if($adoption->userId == $userId)
+              @if($adoption->userId == $userId && $adoption->animalId == $animal->id)
               <tr>
                 <td> {{$adoption->name}} </td>
                 <td> {{$animal->type}} </td>
                 <td> {{$adoption->adopted}} </td>
               </tr>
               @endif
+              @endif
+              @endforeach
               @endforeach
             </tbody>
           </table>
