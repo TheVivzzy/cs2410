@@ -23,8 +23,6 @@ class RequestController extends Controller
     $adoption->userId = $request->input('userId');
     $adoption->animalId = $request->input('animalId');
     $adoption->name = $request->input('name');
-
-
     $adoption->save();
 
     return back()->with('succcess', 'Adoption request made');
@@ -33,26 +31,31 @@ class RequestController extends Controller
   // return the view requests view for admin
   public function index()
   {
+    $animal = Animal::all();
     $adoptionsQuery = Adoption::all();
-    return view('adoption_requests.viewrequests', array('adoptions'=>$adoptionsQuery));
+    return view('adoption_requests.viewrequests', array('adoptions'=>$adoptionsQuery, 'animals'=>$animal));
   }
 
   // return back success when adoption decision has been made and submitted
-  public function review(Request $request, $id, $animalId)
+  public function review(Request $request, $id)
   {
     $adoptions = Adoption::find($id);
-    $adoptions->adopted = $request->input('adopted');
+    $animalId = $adoptions->animalId;
+    $this->validate(request(), [
+      'accepted' => 'required'
+    ]);
+    $adoptions->accepted = $request->input('accepted');
     $adoptions->save();
 
-    if($adoptions->adopted == 'Accepted')
+    if($adoptions->accepted == 'Approved')
     {
       $animal = Animal::where('id', "=", $animalId)->first();
-      $animal->availability  = '0';
+      $animal->availability = 'Unavailable';
       $animal->save();
 
-      $other = Adoption::where("animalId", '=', $animalId)->where('adopted', '=', 'Pending')->get();
+      $other = Adoption::where("animalId", '=', $animalId)->where('accepted', '=', 'Pending')->get();
       foreach ($other as $info) {
-        $info->adopted = 'Rejected';
+        $info->accepted = 'Rejected';
         $info->save();
       }
     }

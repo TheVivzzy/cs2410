@@ -22,6 +22,8 @@
             </thead>
             <tbody>
               @foreach($adoptions as $adoption)
+              @foreach($animals as $animal)
+              @if($adoption->animalId == $animal->id)
               <tr>
                 <?php
                 $animal = $animals->where('id', '=', $adoption->animalId)->first();
@@ -29,8 +31,10 @@
                  ?>
                 <td> {{$animal->name}} </td>
                 <td> {{$user->username}} </td>
-                <td> {{$adoption->adopted}} </td>
+                <td> {{$adoption->accepted}} </td>
               </tr>
+              @endif
+              @endforeach
               @endforeach
             </tbody>
           </table>

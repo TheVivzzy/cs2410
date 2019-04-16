@@ -6,7 +6,7 @@
       <div class="card">
 
         <!-- Dashboard for the user  -->
-        <div class="card-header">Dashboard</div>
+        <center><div class="card-header">Dashboard</div></center>
 
         <div class="card-body">
           @if (session('status'))
@@ -14,12 +14,12 @@
             {{ session('status') }}
           </div>
           @endif
-
-          Hello {{$username}}, you are logged in! <br> Welcome to Aston Animal Sanctuary. <br>
-          We aim to make sure every animal deserves a warm, comfortable and caring home.
-
+          <center>
+            Hello {{$username}}, you are logged in! <br> Welcome to Aston Animal Sanctuary. <br>
+            We aim to make sure every animal deserves a warm, comfortable and caring home.
+          </center>
           <br> <br>
-          <a href="{{ route('display') }}" class="btn btn-primary">Display Animals</a>
+          <center>  <a href="{{ route('display') }}" class="btn btn-primary">Display Animals</a> </center>
         </div>
       </div>
     </div>

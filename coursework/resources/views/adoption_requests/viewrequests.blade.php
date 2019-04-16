@@ -18,26 +18,27 @@
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
-                <th>AnimalId</th><th>Name</th><th>User Id</th>
-                <th> Decision</th>
+                <th>AnimalId</th><th>Name</th><th>User Id</th><th>Current Decision</th>
+                <th>Decision</th>
               </tr>
             </thead>
             <tbody>
               @foreach($adoptions as $adoption)
               @foreach($animals as $animal)
-              @if($adoption->adopted == 'Pending')
+              @if($adoption->animalId == $animal->id)
               <tr>
                 <td> {{$adoption->animalId}} </td>
                 <td> {{$adoption->name}} </td>
                 <td> {{$adoption->userId}} </td>
+                <td> {{$adoption->accepted}} </td>
                 <td>
                   <form class="form-horizontal" method="POST" action="{{
                     action('RequestController@review', [$adoption->id, $adoption->animalId]) }}"
                     enctype="multipart/form-data">
                     @csrf
-                  <select name="adopted">
+                  <select name="accepted">
                     <option value="Pending">Pending</option>
-                    <option value="Accepted">Accepted</option>
+                    <option value="Approved">Approved</option>
                     <option value="Rejected">Rejected</option>
                   </select>
                   <input type="submit" class="btn btn-primary" />

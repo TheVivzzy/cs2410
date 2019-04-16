@@ -31,7 +31,7 @@
                 <td>{{$temp['availability']}}</td>
                 <?php
                 $username = "";
-                $adopt = $adoptions->where('animalId', '=', $temp['id'])->where('adopted', '=', 'Accepted')->first();
+                $adopt = $adoptions->where('animalId', '=', $temp['id'])->where('accepted', '=', 'Accepted')->first();
                 if($adopt != null)
                 {
                   $userId = $adopt['userId'];

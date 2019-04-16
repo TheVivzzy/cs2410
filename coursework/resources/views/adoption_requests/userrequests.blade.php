@@ -29,7 +29,7 @@
               <tr>
                 <td> {{$adoption->name}} </td>
                 <td> {{$animal->type}} </td>
-                <td> {{$adoption->adopted}} </td>
+                <td> {{$adoption->accepted}} </td>
               </tr>
               @endif
               @endif
