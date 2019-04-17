@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8 ">
       <div class="card">
-        <div class="card-header">Display all Animals</div>
+        <div class="card-header">This Animals Information</div>
         <div class="card-body">
 
           <!-- table which shows and obtains the animal information from the database -->

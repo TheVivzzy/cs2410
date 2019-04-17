@@ -71,6 +71,7 @@ class AnimalController extends Controller
 
   }
 
+  //obtain animals return it back to the show view for the user
   public function index()
   {
     $animal = Animal::all();
@@ -79,6 +80,9 @@ class AnimalController extends Controller
     return view('animals.index', array('animal'=>$animal, 'adoptions'=>$adoptions, 'users'=>$users));
   }
 
+  /**obtain animals return it back to the show view for the user
+  * (same as above index method but had to be used to fix an error)
+  */
   public function user()
   {
     $animal = Animal::all();
@@ -121,7 +125,7 @@ class AnimalController extends Controller
     $animal->type = $request->input('type');
     $animal->description = $request->input('description');
     $animal->availability = $request->input('availability');
-    // $animal->updated_at = now();
+
     //Handles the uploading of the image
     if ($request->hasFile('picture')){
       //Gets the filename with the extension
@@ -142,7 +146,7 @@ class AnimalController extends Controller
     return redirect('animals')->with('success','Animal has been updated');
   }
 
-  // edit information and return back this edited information to the view 
+  // edit information and return back this edited information to the view
   public function edit($id)
   {
     $animal = Animal::find($id);

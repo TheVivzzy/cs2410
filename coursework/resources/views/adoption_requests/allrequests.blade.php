@@ -17,7 +17,7 @@
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
-                <th> Animal Name</th><th>Username</th><th>Decision</th>
+                <th>Animal Name</th><th>Username</th><th>Decision</th>
               </tr>
             </thead>
             <tbody>
