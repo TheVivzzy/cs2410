@@ -27,8 +27,8 @@ class RequestController extends Controller
 
     return back()->with('succcess', 'Adoption request made');
   }
-
-  // return the view requests view for admin
+s
+  // return the requests view for the admin
   public function index()
   {
     $animal = Animal::all();
@@ -36,7 +36,7 @@ class RequestController extends Controller
     return view('adoption_requests.viewrequests', array('adoptions'=>$adoptionsQuery, 'animals'=>$animal));
   }
 
-  // return back success when adoption decision has been made and submitted
+  // return back success when adoption decision has been made and submitted by the admin
   public function review(Request $request, $id)
   {
     $adoptions = Adoption::find($id);
