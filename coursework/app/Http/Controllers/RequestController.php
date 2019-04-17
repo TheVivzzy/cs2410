@@ -27,7 +27,7 @@ class RequestController extends Controller
 
     return back()->with('succcess', 'Adoption request made');
   }
-s
+  
   // return the requests view for the admin
   public function index()
   {
