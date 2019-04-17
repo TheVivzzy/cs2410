@@ -29,7 +29,7 @@
                 </tr>
               </tbody>
             </table>
-              <a href="{{route('display_animal')}}" class="btn btn- info">Back</a>
+              <a href="{{route('display_animals')}}" class="btn btn-primary">Back</a>
             </div>
           </div>
         </div>
