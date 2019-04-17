@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-md-10 ">
       <div class="card">
-        <div class="card-header">Display all Animals</div>
+        <div class="card-header">Owners Details</div>
         <div class="card-body">
           <!-- table to display owners details for each adoption -->
           <table class="table table-striped">
