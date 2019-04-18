@@ -11,7 +11,6 @@ use Validator;
 
 class AnimalController extends Controller
 {
-  //display the animal details to the view
   public function display(Request $request)
   {
     $filter = $request->input("filter");

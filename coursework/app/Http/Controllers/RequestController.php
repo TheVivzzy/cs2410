@@ -10,7 +10,7 @@ Use App\User;
 class RequestController extends Controller
 {
 
-  // store the information to the database
+  // store the info to the database
   public function store(Request $request)
   {
     $adoption = $this->validate(request(),[
@@ -62,7 +62,7 @@ class RequestController extends Controller
     return back()->with('success', 'Adoption Request has updated');
   }
 
-  // return back the user request in the view for animals, authenticate the exact user 
+  // return back the user request in the view for animals
   public function user()
   {
     $animalsQuery = Animal::all();
